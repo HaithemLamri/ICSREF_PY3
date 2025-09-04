@@ -1,0 +1,15 @@
+# Core
+cmd2==2.4.3
+dill==0.3.8
+ujson==5.9.0
+
+# Analysis stack
+angr==9.2.90
+z3-solver==4.12.5.0
+r2pipe==1.8.0
+networkx==3.2.1
+pydot==2.0.0
+
+# Graphing
+pygraphviz==1.12
+

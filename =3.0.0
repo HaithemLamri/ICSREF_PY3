@@ -1,0 +1,43 @@
+Collecting six
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting httplib2
+  Downloading httplib2-0.30.0-py3-none-any.whl.metadata (2.2 kB)
+Collecting pillow
+  Downloading pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+Collecting distro
+  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
+Collecting mako
+  Downloading mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+Collecting paramiko
+  Downloading paramiko-4.0.0-py3-none-any.whl.metadata (3.9 kB)
+Collecting urllib3<3,>=1.26.0
+  Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+Requirement already satisfied: pyparsing<4,>=3.0.4 in ./venv/lib/python3.10/site-packages (from httplib2) (3.2.3)
+Requirement already satisfied: MarkupSafe>=0.9.2 in /home/hl5743/.local/lib/python3.10/site-packages (from mako) (2.1.1)
+Collecting bcrypt>=3.2 (from paramiko)
+  Downloading bcrypt-4.3.0-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (10 kB)
+Collecting cryptography>=3.3 (from paramiko)
+  Downloading cryptography-45.0.7-cp37-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+Collecting invoke>=2.0 (from paramiko)
+  Downloading invoke-2.2.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting pynacl>=1.5 (from paramiko)
+  Downloading PyNaCl-1.5.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl.metadata (8.6 kB)
+Requirement already satisfied: cffi>=1.14 in ./venv/lib/python3.10/site-packages (from cryptography>=3.3->paramiko) (1.17.1)
+Requirement already satisfied: pycparser in ./venv/lib/python3.10/site-packages (from cffi>=1.14->cryptography>=3.3->paramiko) (2.22)
+Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading httplib2-0.30.0-py3-none-any.whl (91 kB)
+Downloading pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 51.6 MB/s  0:00:00
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Downloading mako-1.3.10-py3-none-any.whl (78 kB)
+Downloading paramiko-4.0.0-py3-none-any.whl (223 kB)
+Downloading bcrypt-4.3.0-cp39-abi3-manylinux_2_34_x86_64.whl (284 kB)
+Downloading cryptography-45.0.7-cp37-abi3-manylinux_2_34_x86_64.whl (4.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 57.1 MB/s  0:00:00
+Downloading invoke-2.2.0-py3-none-any.whl (160 kB)
+Downloading PyNaCl-1.5.0-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_24_x86_64.whl (856 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 856.7/856.7 kB 42.3 MB/s  0:00:00
+Installing collected packages: urllib3, six, pillow, mako, invoke, httplib2, distro, bcrypt, pynacl, cryptography, paramiko
+
+Successfully installed bcrypt-4.3.0 cryptography-45.0.7 distro-1.9.0 httplib2-0.30.0 invoke-2.2.0 mako-1.3.10 paramiko-4.0.0 pillow-11.3.0 pynacl-1.5.0 six-1.17.0 urllib3-2.5.0

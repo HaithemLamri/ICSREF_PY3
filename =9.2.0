@@ -1,0 +1,147 @@
+Requirement already satisfied: dill in /home/hl5743/.local/lib/python3.10/site-packages (0.3.7)
+Collecting ujson
+  Using cached ujson-5.11.0-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (9.4 kB)
+Collecting cmd2
+  Using cached cmd2-2.7.0-py3-none-any.whl.metadata (17 kB)
+Collecting r2pipe
+  Using cached r2pipe-1.9.6-py3-none-any.whl
+Collecting angr
+  Using cached angr-9.2.173-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (4.3 kB)
+Collecting pygraphviz
+  Using cached pygraphviz-1.14.tar.gz (106 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting pyperclip>=1.8 (from cmd2)
+  Using cached pyperclip-1.9.0-py3-none-any.whl
+Collecting rich-argparse>=1.7.1 (from cmd2)
+  Using cached rich_argparse-1.7.1-py3-none-any.whl.metadata (14 kB)
+Collecting wcwidth>=0.2.10 (from cmd2)
+  Using cached wcwidth-0.2.13-py2.py3-none-any.whl.metadata (14 kB)
+Collecting cxxheaderparser (from angr)
+  Using cached cxxheaderparser-1.5.4-py3-none-any.whl.metadata (5.2 kB)
+Collecting GitPython (from angr)
+  Using cached gitpython-3.1.45-py3-none-any.whl.metadata (13 kB)
+Collecting archinfo==9.2.173 (from angr)
+  Using cached archinfo-9.2.173-py3-none-any.whl.metadata (1.9 kB)
+Requirement already satisfied: cachetools in /home/hl5743/.local/lib/python3.10/site-packages (from angr) (5.3.1)
+Collecting capstone==5.0.3 (from angr)
+  Using cached capstone-5.0.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.3 kB)
+Collecting cffi>=1.14.0 (from angr)
+  Using cached cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.5 kB)
+Collecting claripy==9.2.173 (from angr)
+  Using cached claripy-9.2.173-py3-none-any.whl.metadata (1.7 kB)
+Collecting cle==9.2.173 (from angr)
+  Using cached cle-9.2.173-py3-none-any.whl.metadata (6.8 kB)
+Collecting mulpyplexer (from angr)
+  Using cached mulpyplexer-0.9-py3-none-any.whl
+Requirement already satisfied: networkx!=2.8.1,>=2.0 in /home/hl5743/.local/lib/python3.10/site-packages (from angr) (2.8.3)
+Collecting protobuf>=5.28.2 (from angr)
+  Using cached protobuf-6.32.0-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+Requirement already satisfied: psutil in /home/hl5743/.local/lib/python3.10/site-packages (from angr) (5.9.2)
+Collecting pycparser>=2.18 (from angr)
+  Using cached pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Collecting pydemumble (from angr)
+  Using cached pydemumble-0.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (476 bytes)
+Collecting pyformlang (from angr)
+  Using cached pyformlang-1.0.11-py3-none-any.whl.metadata (2.4 kB)
+Collecting pypcode<4.0,>=3.2.1 (from angr)
+  Using cached pypcode-3.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (3.4 kB)
+Collecting pyvex==9.2.173 (from angr)
+  Using cached pyvex-9.2.173-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+Collecting rich>=13.1.0 (from angr)
+  Using cached rich-14.1.0-py3-none-any.whl.metadata (18 kB)
+Requirement already satisfied: sortedcontainers in /home/hl5743/.local/lib/python3.10/site-packages (from angr) (2.4.0)
+Collecting sympy (from angr)
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting typing-extensions (from angr)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting unique-log-filter (from angr)
+  Using cached unique_log_filter-0.1.0-py3-none-any.whl.metadata (664 bytes)
+Collecting backports-strenum>=1.2.8 (from archinfo==9.2.173->angr)
+  Using cached backports_strenum-1.3.1-py3-none-any.whl.metadata (3.7 kB)
+Collecting z3-solver==4.13.0.0 (from claripy==9.2.173->angr)
+  Using cached z3_solver-4.13.0.0-py2.py3-none-manylinux2014_x86_64.whl.metadata (757 bytes)
+Collecting cart (from cle==9.2.173->angr)
+  Using cached cart-1.2.3-py2.py3-none-any.whl.metadata (1.1 kB)
+Collecting pefile (from cle==9.2.173->angr)
+  Using cached pefile-2024.8.26-py3-none-any.whl.metadata (1.4 kB)
+Requirement already satisfied: pyelftools>=0.29 in /home/hl5743/.local/lib/python3.10/site-packages (from cle==9.2.173->angr) (0.30)
+Collecting bitstring (from pyvex==9.2.173->angr)
+  Using cached bitstring-4.3.1-py3-none-any.whl.metadata (5.3 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=13.1.0->angr)
+  Using cached markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/hl5743/.local/lib/python3.10/site-packages (from rich>=13.1.0->angr) (2.18.0)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=13.1.0->angr)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting bitarray<4.0,>=3.0.0 (from bitstring->pyvex==9.2.173->angr)
+  Using cached bitarray-3.7.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (34 kB)
+Requirement already satisfied: pycryptodome in /home/hl5743/.local/lib/python3.10/site-packages (from cart->cle==9.2.173->angr) (3.20.0)
+Collecting gitdb<5,>=4.0.1 (from GitPython->angr)
+  Using cached gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->GitPython->angr)
+  Using cached smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+Requirement already satisfied: numpy in /home/hl5743/.local/lib/python3.10/site-packages (from pyformlang->angr) (1.23.4)
+Requirement already satisfied: pydot in /home/hl5743/.local/lib/python3.10/site-packages (from pyformlang->angr) (1.4.2)
+Collecting pyparsing>=2.1.4 (from pydot->pyformlang->angr)
+  Using cached pyparsing-3.2.3-py3-none-any.whl.metadata (5.0 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy->angr)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Using cached ujson-5.11.0-cp310-cp310-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (57 kB)
+Using cached cmd2-2.7.0-py3-none-any.whl (154 kB)
+Using cached angr-9.2.173-cp310-abi3-manylinux_2_28_x86_64.whl (6.1 MB)
+Using cached archinfo-9.2.173-py3-none-any.whl (50 kB)
+Using cached capstone-5.0.3-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.9 MB)
+Using cached claripy-9.2.173-py3-none-any.whl (142 kB)
+Using cached cle-9.2.173-py3-none-any.whl (201 kB)
+Using cached pyvex-9.2.173-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+Using cached z3_solver-4.13.0.0-py2.py3-none-manylinux2014_x86_64.whl (57.3 MB)
+Using cached pypcode-3.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (13.8 MB)
+Using cached backports_strenum-1.3.1-py3-none-any.whl (8.3 kB)
+Using cached cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)
+Using cached protobuf-6.32.0-cp39-abi3-manylinux2014_x86_64.whl (322 kB)
+Using cached pycparser-2.22-py3-none-any.whl (117 kB)
+Using cached rich-14.1.0-py3-none-any.whl (243 kB)
+Using cached markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Using cached rich_argparse-1.7.1-py3-none-any.whl (25 kB)
+Using cached wcwidth-0.2.13-py2.py3-none-any.whl (34 kB)
+Using cached bitstring-4.3.1-py3-none-any.whl (71 kB)
+Using cached bitarray-3.7.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (322 kB)
+Using cached cart-1.2.3-py2.py3-none-any.whl (10 kB)
+Using cached cxxheaderparser-1.5.4-py3-none-any.whl (59 kB)
+Using cached gitpython-3.1.45-py3-none-any.whl (208 kB)
+Using cached gitdb-4.0.12-py3-none-any.whl (62 kB)
+Using cached smmap-5.0.2-py3-none-any.whl (24 kB)
+Using cached pefile-2024.8.26-py3-none-any.whl (74 kB)
+Using cached pydemumble-0.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (183 kB)
+Using cached pyformlang-1.0.11-py3-none-any.whl (128 kB)
+Using cached pyparsing-3.2.3-py3-none-any.whl (111 kB)
+Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Using cached unique_log_filter-0.1.0-py3-none-any.whl (1.5 kB)
+Building wheels for collected packages: pygraphviz
+  Building wheel for pygraphviz (pyproject.toml): started
+  Building wheel for pygraphviz (pyproject.toml): finished with status 'done'
+  Created wheel for pygraphviz: filename=pygraphviz-1.14-cp310-cp310-linux_x86_64.whl size=212856 sha256=423d68d8291a26f43b174630fd9f0aa431f8bd97fa6cbe22e088cbe1c96508ed
+  Stored in directory: /home/hl5743/.cache/pip/wheels/61/ab/cd/e24a22c32830b8b4948c8887d8714d399f0f806f206a034698
+Successfully built pygraphviz
+Installing collected packages: z3-solver, wcwidth, r2pipe, pyperclip, mulpyplexer, mpmath, bitarray, unique-log-filter, ujson, typing-extensions, sympy, smmap, pypcode, pyparsing, pygraphviz, pydemumble, pycparser, protobuf, pefile, mdurl, cxxheaderparser, cart, capstone, bitstring, backports-strenum, markdown-it-py, gitdb, claripy, cffi, archinfo, rich, pyvex, pyformlang, GitPython, rich-argparse, cle, cmd2, angr
+  Attempting uninstall: wcwidth
+    Found existing installation: wcwidth 0.2.8
+    Not uninstalling wcwidth at /home/hl5743/.local/lib/python3.10/site-packages, outside environment /home/hl5743/Desktop/Github/ICSREF/venv
+    Can't uninstall 'wcwidth'. No files were found to uninstall.
+  Attempting uninstall: protobuf
+    Found existing installation: protobuf 3.20.3
+    Not uninstalling protobuf at /home/hl5743/.local/lib/python3.10/site-packages, outside environment /home/hl5743/Desktop/Github/ICSREF/venv
+    Can't uninstall 'protobuf'. No files were found to uninstall.
+  Attempting uninstall: capstone
+    Found existing installation: capstone 5.0.1
+    Not uninstalling capstone at /home/hl5743/.local/lib/python3.10/site-packages, outside environment /home/hl5743/Desktop/Github/ICSREF/venv
+    Can't uninstall 'capstone'. No files were found to uninstall.
+
+Successfully installed GitPython-3.1.45 angr-9.2.173 archinfo-9.2.173 backports-strenum-1.3.1 bitarray-3.7.1 bitstring-4.3.1 capstone-5.0.3 cart-1.2.3 cffi-1.17.1 claripy-9.2.173 cle-9.2.173 cmd2-2.7.0 cxxheaderparser-1.5.4 gitdb-4.0.12 markdown-it-py-4.0.0 mdurl-0.1.2 mpmath-1.3.0 mulpyplexer-0.9 pefile-2024.8.26 protobuf-6.32.0 pycparser-2.22 pydemumble-0.0.1 pyformlang-1.0.11 pygraphviz-1.14 pyparsing-3.2.3 pypcode-3.3.0 pyperclip-1.9.0 pyvex-9.2.173 r2pipe-1.9.6 rich-14.1.0 rich-argparse-1.7.1 smmap-5.0.2 sympy-1.14.0 typing-extensions-4.15.0 ujson-5.11.0 unique-log-filter-0.1.0 wcwidth-0.2.13 z3-solver-4.13.0.0
