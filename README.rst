@@ -1,144 +1,230 @@
-*****************************************
-ICSREF: ICS Reverse Engineering Framework
-*****************************************
+# ICSREF (Python 3) — Installation & Setup
 
-Overview
-========
+ICSREF was originally Python 2–based; this guide explains how to install and run it with **Python 3** on **Ubuntu/Debian**, **macOS**, and **Windows**. It also includes a ready-to-use `requirements.txt`.
 
-``ICSREF`` is a modular framework that automates the reverse engineering process of CODESYS_ binaries compiled with the CODESYS v2 compiler.
+---
 
-.. code-block:: none
+## 0) Quick checklist
 
-        _______________ ____  ____________
-       /  _/ ____/ ___// __ \/ ____/ ____/
-       / // /    \__ \/ /_/ / __/ / /_    
-     _/ // /___ ___/ / _, _/ /___/ __/    
-    /___/\____//____/_/ |_/_____/_/       
-                               
+- Python **3.10+** (3.11 recommended)
+- A C/C++ build toolchain (needed for some wheels)
+- `radare2` (CLI) in your PATH
+- `graphviz` and its headers (for `pygraphviz`)
+- A virtual environment activated before pip installs
 
-by Tasos Keliris `\@koukouviou`_
+---
 
-.. _`\@koukouviou`: https://www.twitter.com/koukouviou
+## 1) Ubuntu / Debian (Linux)
 
-Cite us!
-========
-If you find our work interesting and use it in your (academic or not) research, please cite our NDSS'19 paper describing ICSREF:
+### 1.1 System packages
 
-Anastasis Keliris, and Michail Maniatakos, "ICSREF: A Framework for Automated Reverse Engineering of Industrial Control Systems Binaries", in NDSS'19.
+Some dependencies (like `radare2` and `graphviz`) are not pip-installable.
 
-Bibtex:
+```bash
+sudo apt update
+sudo apt install -y   python3 python3-dev python3-venv python3-pip   build-essential   graphviz   libgraphviz-dev   pkg-config   git
+```
 
-.. code-block:: none
+### 1.2 Install radare2 (pick one)
 
-    @inproceedings{keliris2019icsref,
-    title={{ICSREF}: A Framework for Automated Reverse Engineering of Industrial Control Systems Binaries},
-    author={Keliris, A. and Maniatakos, M.},
-    booktitle={Network and Distributed System Security Symposium (NDSS)},
-    year={2019}
-    }
+- **APT (stable, may be older):**
+  ```bash
+  sudo apt install radare2
+  ```
+- **Snap (often newer):**
+  ```bash
+  sudo snap install radare2 --classic
+  ```
+- **From source (bleeding-edge):**
+  ```bash
+  git clone https://github.com/radareorg/radare2.git
+  cd radare2
+  sys/install.sh
+  ```
 
+**Verify installation:**
+```bash
+r2 -v
+dot -V
+```
 
+---
 
+## 2) macOS (Intel & Apple Silicon)
 
-Preview
-=======
+### 2.1 Install prerequisites (Homebrew)
 
-.. raw:: html
+If you don’t have Homebrew:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
-    <embed>
-        <a href="https://asciinema.org/a/9l96XWgNttz1WTdXGIngMAAKe" target="_blank"><img src="https://asciinema.org/a/9l96XWgNttz1WTdXGIngMAAKe.png" /></a>
-    </embed>
+Install packages:
+```bash
+brew install python@3.11 radare2 graphviz git
+```
 
-Analyses
-========
+**Verify:**
+```bash
+r2 -v
+dot -V
+```
 
-The framework can:
+> Apple Silicon note: Homebrew usually installs under `/opt/homebrew`.
 
-* Perform core analysis of arbitrary ``PRG`` programs. Core analysis includes:
-    1. Delimitation of binary blobs (i.e., functions/routines).
-    2. Identification of calls to dynamic libraries.
-    3. Identification of calls to static libraries (other locations in the same binary).
-    4. Identification of how many and which physical I/Os the binary uses, provided a TRG file that contains the memory mappings of physical I/Os of the particular device the binary is compiled for.
+---
 
-* Identify known library functions included statically in the binary:
-    1. Using an opcode-based hash matching technique
-    2. Using experimental signature-based techniques. This is at the moment only implemented for Proportional-Integral-Derivative (PID) CODESYS library functions.
+## 3) Windows 10/11
 
-* Extract arguments passed to static functions. This is at the moment only implemented for the PID_FIXCYCLE CODESYS library function, but it is trivial to extend this to other functions of interest.
-    1. Argument extraction is powered by symbolic execution and ``angr``
-    2. It can handle cases where the arguments are not impacted by I/O measurements (i.e., defined globally or passed directly)
+### 3.1 Install prerequisites
 
-* Plot SVG graphs of the analyzed binary, including:
-    1. Calls between static functions
-    2. Calls to dynamic functions
-    3. Hyperlinks to the disassembly listings of each function from the SVG
+- **Python 3.10+**: https://www.python.org/downloads/windows/  
+  During installation, check **“Add Python to PATH”**.
+- **Git for Windows**: https://git-scm.com/download/win
+- **Graphviz (MSI)**: https://graphviz.org/download/  
+  During install, check **“Add Graphviz to the system PATH”**.
+- **radare2 (zip release)**: https://github.com/radareorg/radare2/releases  
+  Extract and **add the `bin/` folder to PATH**.
 
-Graphs are powered by Graphviz_. Here's a neat example:
+**Verify in PowerShell:**
+```powershell
+r2 -v
+dot -V
+```
 
-.. image:: docs/images/graph_hil.jpg
-   :width: 500pt
+---
 
-.. _CODESYS: https://www.codesys.com/
-.. _Graphviz: https://graphviz.org/
+## 4) Create & activate a virtual environment (all platforms)
 
+```bash
+cd /path/to/ICSREF
+python3 -m venv venv
 
+# Linux/macOS
+source venv/bin/activate
 
-The framework supports an interactive mode, where all the processing modules are loaded. Users can further investigate and analyze their binaries by exploring the different options. The interactive environment also offers useful `help` docstrings.
+# Windows (PowerShell)
+.env\Scripts\Activate.ps1
 
-.. code-block:: none
-    
-    (icsref) me@example:$ ./icsref.py
+python -V   # should show Python 3.x
+pip install --upgrade pip setuptools wheel
+```
 
-    ICS Reverse Engineering Framework
-        _______________ ____  ____________
-       /  _/ ____/ ___// __ \/ ____/ ____/
-       / // /    \__ \/ /_/ / __/ / /_    
-     _/ // /___ ___/ / _, _/ /___/ __/    
-    /___/\____//____/_/ |_/_____/_/       
-                               
-    author: Tasos Keliris (@koukouviou)
-    Type <help> if you need a nudge
-    reversing@icsref:$ 
-    reversing@icsref:$ help
+---
 
-    Documented commands (type help <topic>):
-    ========================================
-    __changepid         changepid       exp_pid_match  history  pyscript  set      
-    __replace_callname  cleanup         graphbuilder   load     quit      shell    
-    _relative_load      cmdenvironment  hashmatch      pidargs  run       shortcuts
-    analyze             edit            help           py       save      show     
+## 5) Install Python dependencies
 
+### Option A — Use the provided `requirements.txt` (recommended)
+Save the `requirements.txt` from the section at the end of this document, then run:
+```bash
+pip install -r requirements.txt
+```
 
-Installation
-============
+### Option B — Install without pins
+```bash
+pip install r2pipe angr dill ujson pygraphviz cmd2 networkx pydot z3-solver
+```
 
-For the latest installation instructions see INSTALL.md_. For the legacy installation instructions see here_.
+> **pygraphviz tips**
+> - **Linux**: ensure `libgraphviz-dev` is installed (already in step 1.1).
+> - **macOS**: if compilation fails, point to Homebrew paths:
+>   ```bash
+>   pip install pygraphviz >     --config-settings="--global-option=build_ext" >     --config-settings="--global-option=-I/opt/homebrew/include" >     --config-settings="--global-option=-L/opt/homebrew/lib"
+>   ```
+> - **Windows**: if needed, specify include/lib paths:
+>   ```powershell
+>   pip install pygraphviz `
+>     --install-option="--include-path=C:\Program Files\Graphviz\include" `
+>     --install-option="--library-path=C:\Program Files\Graphviz\lib"
+>   ```
 
-.. _INSTALL.md: INSTALL.md
-.. _here: INSTALL.rst
+---
 
+## 6) Verify your environment
 
-Documentation
-=============
+```bash
+python - <<'PY'
+import sys, r2pipe, angr, dill, ujson, cmd2, pygraphviz
+print("Python:", sys.version.split()[0])
+print("ICSREF deps OK")
+PY
+```
 
-The ``ICSREF`` API is documented in a *Read the Docs* style. Once you download the repository you can traverse the docs directory and open index.html in your favorite browser.
+Expected:
+```
+Python: 3.x.y
+ICSREF deps OK
+```
 
+---
 
-Acknowledgements
-================
+## 7) Run ICSREF
 
-``ICSREF``, as all things good in life, is based on the shoulder of giants. The framework relies on symbolic execution using ``angr`` for performing the most interesting analyses such as calculating offsets for static calls and the arguments to function calls. Disassembly listings for the graphing module are generated using the amazing ``r2``. The interactive mode of the tool is powered by the ``cmd2`` python tool. Beautiful documentation is generated with Sphinx and the sphinx_rtd_theme.
+```bash
+python icsref/icsref.py
+```
 
-* `angr <http://angr.io/>`__
-* `radare2 <https://rada.re>`__
-* `cmd2 <https://github.com/python-cmd2/cmd2>`__
-* `Sphinx <http://sphinx-doc.org/>`__
-* `sphinx_rtd_theme <https://sphinx-rtd-theme.readthedocs.io/>`__
+You should see the prompt:
+```
+reversing@icsref:$
+```
 
+---
 
-Contributors
-============
+## 8) Troubleshooting
 
-A big thank you to everyone contributing on this project. See CONTRIBUTORS_
+- **`r2 -v` / `dot -V` fails** → (Re)install `radare2` / Graphviz and ensure PATH is set.
+- **`pygraphviz` build fails** → Install Graphviz **and** dev headers (Linux), or pass include/lib flags (macOS/Windows).
+- **Z3 / Claripy errors** → Ensure `z3-solver` installed; sometimes `pip install --upgrade z3-solver` helps.
+- **Multiple Pythons** → Make sure your venv is **activated** (check `python -V` and `which python` / `where python`).
+- **`cmd2` complaints** → We removed old args (like `use_ipython`); ensure you’re on a modern `cmd2`.
 
-.. _CONTRIBUTORS: CONTRIBUTORS
+---
+
+## 9) Optional: check Python version inside venv
+
+```bash
+python --version
+python -c "import sys; print(sys.executable)"
+```
+You should see the Python 3 version and an executable path **inside your project’s `venv/`**.
+
+---
+
+# requirements.txt
+
+> **Note:** These pins are a reasonable starting point across platforms. If you hit platform-specific solver or wheel issues, loosen a pin (e.g., `angr` or `z3-solver`) and reinstall.
+
+```
+# Core
+cmd2==2.4.3
+dill==0.3.8
+ujson==5.9.0
+
+# Analysis stack
+angr==9.2.90
+z3-solver==4.12.5.0
+r2pipe==1.8.0
+networkx==3.2.1
+pydot==2.0.0
+
+# Graphing
+pygraphviz==1.12
+```
+
+---
+
+## Uninstall / Clean
+
+To remove the venv:
+```bash
+deactivate  # if active
+rm -rf venv  # Linux/macOS
+rmdir /s /q venv  # Windows PowerShell
+```
+
+To remove generated results:
+```bash
+# from ICSREF console:
+reversing@icsref:$ cleanup
+```
